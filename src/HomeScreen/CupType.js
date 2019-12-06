@@ -7,7 +7,7 @@ export default class CupType extends Component {
   render(){
     return(
       <div className="cup-type">
-        <div className="hover-class" style={{border: '3px solid #6c5ce7', height: 200, width: 450, borderRadius: 10, backgroundColor: '#dfe6e9', display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}} onClick={()=>this.props.customizeCup("coffee")}>
+        <div className="hover-class" style={{border: '3px solid #6c5ce7', height: 200, width: 450, borderRadius: 10,  display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}} onClick={()=>this.props.customizeCup("coffee")}>
           <div>
             <img src={require('../images/whiteCoffee.png')} alt="wine outline" height="200" style={{marginTop: 4, marginLeft: -70}}/>
           </div>
@@ -18,7 +18,7 @@ export default class CupType extends Component {
             <h4>Custom Glitter and Decal</h4>
           </div>
         </div>
-        <div className="hover-class" style={{border: '3px solid #6c5ce7', height: 200, width: 450, borderRadius: 10, backgroundColor: '#dfe6e9', display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}} onClick={()=>this.props.customizeCup("wine")}>
+        <div className="hover-class" style={{border: '3px solid #6c5ce7', height: 200, width: 450, borderRadius: 10,  display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}} onClick={()=>this.props.customizeCup("wine")}>
           <div>
             <img src={require('../images/whiteWine.png')} alt="wine outline" height="200" style={{marginTop: 37, marginLeft: -70}}/>
           </div>

@@ -7,7 +7,6 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import AddIcon from '@material-ui/icons/Add';
 
-
 import ColorSelector from '../Components/ColorSelector';
 
 export default class CoffeeCustomizer extends Component {
@@ -35,17 +34,18 @@ export default class CoffeeCustomizer extends Component {
   }
 
   render(){
+
     return(
-      <div className="app-container">
+      <div style={{display: 'flex', justifyContent: 'space-around'}}>
         <div style={{display: 'flex', height: 600, alignItems: 'center'}}>
           <div style={{height: 450, width: 250}}>
             <div style={{position: 'absolute', height: 225, width: 250}} onMouseEnter={()=>this.setState({hoverTop: true})} onMouseLeave={()=>this.setState({hoverTop: false})}>
-              {this.state.textLine1.length > 0 ? <h1 style={{marginTop: 70, color: this.state.textColor === "" ? 'black' : this.state.textColor}}>{this.state.textLine1}</h1> : null}
-              {this.state.textLine2.length > 0 ? <h1 style={{marginTop: 40, color: this.state.textColor === "" ? 'black' : this.state.textColor}}>{this.state.textLine2}</h1> : null}
+              {this.state.textLine1.length > 0 ? <h1 style={{marginTop: 70, color: this.state.textColor === "" ? 'black' : this.state.textColor, textAlign: 'center'}}>{this.state.textLine1}</h1> : null}
+              {this.state.textLine2.length > 0 ? <h1 style={{marginTop: 40, color: this.state.textColor === "" ? 'black' : this.state.textColor, textAlign: 'center'}}>{this.state.textLine2}</h1> : null}
             </div>
             <div style={{position: 'absolute', height: 225, width: 250, marginTop: 225}} onMouseEnter={()=>this.setState({hoverBottom: true})} onMouseLeave={()=>this.setState({hoverBottom: false})}>
-              {this.state.textLine3.length > 0 ? <h1 style={{marginTop: -10, color: this.state.textColor === "" ? 'black' : this.state.textColor}}>{this.state.textLine3}</h1> : null}
-              {this.state.textLine4.length > 0 ? <h1 style={{marginTop: 40, color: this.state.textColor === "" ? 'black' : this.state.textColor}}>{this.state.textLine4}</h1> : null}
+              {this.state.textLine3.length > 0 ? <h1 style={{marginTop: -10, color: this.state.textColor === "" ? 'black' : this.state.textColor, textAlign: 'center'}}>{this.state.textLine3}</h1> : null}
+              {this.state.textLine4.length > 0 ? <h1 style={{marginTop: 40, color: this.state.textColor === "" ? 'black' : this.state.textColor, textAlign: 'center'}}>{this.state.textLine4}</h1> : null}
             </div>
             <img src={require(`../images/coffee-color-selector/${this.state.topColor}-${this.state.bottomColor}-c.png`)} style={{width: 250, height: 450}} alt="coffee tumbler"/>
           </div>
@@ -69,25 +69,25 @@ export default class CoffeeCustomizer extends Component {
             :
               <div>
                 <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-                  <TextField style={{marginTop: 30, width: 300}} value={this.state.textLine1} id="outlined-basic" label="Line 1" variant="outlined" maxLength="2" onChange={(e)=>this.setState({textLine1: e.target.value})}/>
+                  <TextField helperText="Max of 10 characters per line" error={!!(this.state.textLine1.length > 10)} style={{marginTop: 15, width: 300}} value={this.state.textLine1} id="outlined-basic" label="Line 1" variant="outlined" maxLength="2" onChange={(e)=>this.setState({textLine1: e.target.value})}/>
                   <AddIcon style={{fontSize: 30, marginTop: 30, marginLeft: 25}} onClick={this.state.textInputNum === 1 ? ()=>this.setState({textInputNum: 2}) : null} />
                 </div>
                 {this.state.textInputNum > 1 ?
                   <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-                    <TextField style={{marginTop: 30, width: 300}} value={this.state.textLine2} id="outlined-basic" label="Line 2" variant="outlined" maxLength="2" onChange={(e)=>this.setState({textLine2: e.target.value})}/>
+                    <TextField helperText="Max of 10 characters per line" error={!!(this.state.textLine2.length > 10)} style={{marginTop: 15, width: 300}} value={this.state.textLine2} id="outlined-basic" label="Line 2" variant="outlined" maxLength="2" onChange={(e)=>this.setState({textLine2: e.target.value})}/>
                     <AddIcon style={{fontSize: 30, marginTop: 30, marginLeft: 25}} onClick={this.state.textInputNum === 2 ? ()=>this.setState({textInputNum: 3}) : null} />
                   </div> : null}
                 {this.state.textInputNum > 2 ?
                   <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-                    <TextField style={{marginTop: 30, width: 300}} value={this.state.textLine3} id="outlined-basic" label="Line 3" variant="outlined" maxLength="2" onChange={(e)=>this.setState({textLine3: e.target.value})}/>
+                    <TextField helperText="Max of 10 characters per line" error={!!(this.state.textLine3.length > 10)} style={{marginTop: 15, width: 300}} value={this.state.textLine3} id="outlined-basic" label="Line 3" variant="outlined" maxLength="2" onChange={(e)=>this.setState({textLine3: e.target.value})}/>
                     <AddIcon style={{fontSize: 30, marginTop: 30, marginLeft: 25}} onClick={this.state.textInputNum === 3 ? ()=>this.setState({textInputNum: 4}) : null} />
                   </div> : null}
                 {this.state.textInputNum === 4 ?
                   <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-                    <TextField style={{marginTop: 30, width: 300, marginLeft: -50}} value={this.state.textLine4} id="outlined-basic" label="Line 4" variant="outlined" maxLength="2" onChange={(e)=>this.setState({textLine4: e.target.value})}/>
+                    <TextField helperText="Max of 10 characters per line" error={!!(this.state.textLine4.length > 10)} style={{marginTop: 15, width: 300, marginLeft: -50}} value={this.state.textLine4} id="outlined-basic" label="Line 4" variant="outlined" maxLength="2" onChange={(e)=>this.setState({textLine4: e.target.value})}/>
                   </div> : null}
                 <FormControl variant="outlined">
-                  <InputLabel  id="outlined-basic" style={{marginTop: 35, marginLeft: -50}}>
+                  <InputLabel  id="outlined-basic" style={{marginTop: 20, marginLeft: 72}}>
                     Font Color
                   </InputLabel>
                   <Select
@@ -96,7 +96,7 @@ export default class CoffeeCustomizer extends Component {
                     id="outlined-basic"
                     value={this.state.textColor}
                     onChange={(e)=>this.setState({textColor: e.target.value})}
-                    style={{marginTop: 35, width: 300, marginLeft: -50}}
+                    style={{marginTop: 20, width: 300, marginLeft: 72}}
                   >
                     <MenuItem value="">
                       <em>None</em>

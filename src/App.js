@@ -12,7 +12,7 @@ export default class App extends Component {
 
   render(){
     return(
-      <div className="app-container-home">
+      <div className="app-container">
         {this.state.desktop ?
           <DesktopApp />
         :

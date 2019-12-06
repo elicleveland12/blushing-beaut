@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import '../App.css';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import FacebookIcon from '@material-ui/icons/Facebook';
+import MailOutlineIcon from '@material-ui/icons/MailOutline';
 
 export default class TopNavBar extends Component {
 
@@ -18,6 +19,8 @@ export default class TopNavBar extends Component {
         <div className="hover-class" style={{display: 'flex', flexDirection: 'row', paddingRight: 10, alignItems: 'center'}}>
           <InstagramIcon style={{fontSize: 40, color: '#6c5ce7'}}/>
           <FacebookIcon style={{fontSize: 40, color: '#6c5ce7', marginLeft: 10}} />
+          <MailOutlineIcon style={{fontSize: 40, color: '#6c5ce7', marginLeft: 10}}/>
+          <img style={{marginLeft: 10}} src="https://bushelandpecks.com/wp-content/uploads/2017/03/etsy-logo.png" width="40px" height="40px" alt="etsy"/>
         </div>
       </div>
     )
