@@ -1,13 +1,15 @@
 import React, {Component} from 'react';
 import './App.css';
 import scrollToComponent from 'react-scroll-to-component';
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 
 import TopNavBar from './HomeScreen/TopNavBar';
 import SlideShow from './HomeScreen/SlideShow';
 import IntroBlurb from './HomeScreen/IntroBlurb';
 import CupType from './HomeScreen/CupType';
 
-import CoffeeCustomizer from './Coffee/CoffeeCustomizer';
+import TumblerCustomizer from './Customizer/TumblerCustomizer';
+
 
 export default class App extends Component {
 
@@ -19,10 +21,10 @@ export default class App extends Component {
   customizeCup = async(cupType) => {
     if (cupType === "coffee") {
       await this.setState({customizeCoffee: true, customizeWine: false})
-      scrollToComponent(this.Coffee, {offset: 20, align: 'middle', duration: 500, ease:'inExpo'})
+      scrollToComponent(this.Coffee, {offset: -100, align: 'middle', duration: 1000, ease:'inExpo'})
     } else {
-      this.setState({customizeCoffee: false, customizeWine: true})
-      // scrollToComponent(this.Wine, {offset: 0, align: 'middle', duration: 1500, ease:'inExpo'})
+      await this.setState({customizeCoffee: false, customizeWine: true})
+      scrollToComponent(this.Wine, {offset: -100, align: 'middle', duration: 1000, ease:'inExpo'})
     }
   }
 
@@ -41,7 +43,16 @@ export default class App extends Component {
         </div>
         {this.state.customizeCoffee ?
           <div ref={(section) => { this.Coffee = section; }} style={{width: '90%', backgroundColor: 'white', border: '3px solid #6c5ce7', borderRadius: 10, marginLeft: '5%', marginTop: 20}}>
-            <CoffeeCustomizer />
+            <HighlightOffIcon className="hover-class" style={{top: 8, right: 8, color: '#6c5ce7', fontSize: 40}} onClick={()=>this.setState({customizeCoffee: false, customizeWine: false})}/>
+            <TumblerCustomizer coffee={true}/>
+          </div>
+        :
+          null
+        }
+        {this.state.customizeWine ?
+          <div ref={(section) => { this.Wine = section; }} style={{width: '90%', backgroundColor: 'white', border: '3px solid #6c5ce7', borderRadius: 10, marginLeft: '5%', marginTop: 20}}>
+            <HighlightOffIcon className="hover-class" style={{top: 8, right: 8, color: '#6c5ce7', fontSize: 40}} onClick={()=>this.setState({customizeCoffee: false, customizeWine: false})}/>
+            <TumblerCustomizer coffee={false}/>
           </div>
         :
           null

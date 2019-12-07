@@ -9,7 +9,7 @@ import AddIcon from '@material-ui/icons/Add';
 
 import ColorSelector from '../Components/ColorSelector';
 
-export default class CoffeeCustomizer extends Component {
+export default class TumblerCustomizer extends Component {
 
 
   state = {
@@ -39,15 +39,19 @@ export default class CoffeeCustomizer extends Component {
       <div style={{display: 'flex', justifyContent: 'space-around'}}>
         <div style={{display: 'flex', height: 600, alignItems: 'center'}}>
           <div style={{height: 450, width: 250}}>
-            <div style={{position: 'absolute', height: 225, width: 250}} onMouseEnter={()=>this.setState({hoverTop: true})} onMouseLeave={()=>this.setState({hoverTop: false})}>
-              {this.state.textLine1.length > 0 ? <h1 style={{marginTop: 70, color: this.state.textColor === "" ? 'black' : this.state.textColor, textAlign: 'center'}}>{this.state.textLine1}</h1> : null}
-              {this.state.textLine2.length > 0 ? <h1 style={{marginTop: 40, color: this.state.textColor === "" ? 'black' : this.state.textColor, textAlign: 'center'}}>{this.state.textLine2}</h1> : null}
+            <div style={{position: 'absolute', height: this.props.coffee ? 225 : 150, width: 250, marginTop: this.props.coffee ? 0 : 75}} onMouseEnter={()=>this.setState({hoverTop: true})} onMouseLeave={()=>this.setState({hoverTop: false})}>
+              {this.state.textLine1.length > 0 ? <h1 style={{marginTop: 40, color: this.state.textColor === "" ? 'black' : this.state.textColor, textAlign: 'center'}}>{this.state.textLine1}</h1> : null}
+              {this.state.textLine2.length > 0 ? <h1 style={{marginTop: 20, color: this.state.textColor === "" ? 'black' : this.state.textColor, textAlign: 'center'}}>{this.state.textLine2}</h1> : null}
             </div>
-            <div style={{position: 'absolute', height: 225, width: 250, marginTop: 225}} onMouseEnter={()=>this.setState({hoverBottom: true})} onMouseLeave={()=>this.setState({hoverBottom: false})}>
-              {this.state.textLine3.length > 0 ? <h1 style={{marginTop: -10, color: this.state.textColor === "" ? 'black' : this.state.textColor, textAlign: 'center'}}>{this.state.textLine3}</h1> : null}
-              {this.state.textLine4.length > 0 ? <h1 style={{marginTop: 40, color: this.state.textColor === "" ? 'black' : this.state.textColor, textAlign: 'center'}}>{this.state.textLine4}</h1> : null}
+            <div style={{position: 'absolute', height: this.props.coffee ? 225 : 150, width: 250, marginTop: 225}} onMouseEnter={()=>this.setState({hoverBottom: true})} onMouseLeave={()=>this.setState({hoverBottom: false})}>
+              {this.state.textLine3.length > 0 ? <h1 style={{marginTop: this.props.coffee ? -10 : 20, color: this.state.textColor === "" ? 'black' : this.state.textColor, textAlign: 'center'}}>{this.state.textLine3}</h1> : null}
+              {this.state.textLine4.length > 0 ? <h1 style={{marginTop: this.props.coffee ? 40 : 20, color: this.state.textColor === "" ? 'black' : this.state.textColor, textAlign: 'center'}}>{this.state.textLine4}</h1> : null}
             </div>
-            <img src={require(`../images/coffee-color-selector/${this.state.topColor}-${this.state.bottomColor}-c.png`)} style={{width: 250, height: 450}} alt="coffee tumbler"/>
+            {this.props.coffee ?
+              <img src={require(`../images/coffee-color-selector/${this.state.topColor}-${this.state.bottomColor}-c.png`)} style={{width: 250, height: 450}} alt="coffee tumbler"/>
+            :
+              <img src={require(`../images/wine-color-selector/${this.state.topColor}-${this.state.bottomColor}-w.png`)} style={{width: 250, height: 300, marginTop: 75}} alt="wine tumbler"/>
+            }
           </div>
           <div style={{display: 'flex', flexDirection: 'column', height: 450, width: 500, alignContent: 'space-between'}}>
             {this.state.hoverTop ?
@@ -70,17 +74,17 @@ export default class CoffeeCustomizer extends Component {
               <div>
                 <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
                   <TextField helperText="Max of 10 characters per line" error={!!(this.state.textLine1.length > 10)} style={{marginTop: 15, width: 300}} value={this.state.textLine1} id="outlined-basic" label="Line 1" variant="outlined" maxLength="2" onChange={(e)=>this.setState({textLine1: e.target.value})}/>
-                  <AddIcon style={{fontSize: 30, marginTop: 30, marginLeft: 25}} onClick={this.state.textInputNum === 1 ? ()=>this.setState({textInputNum: 2}) : null} />
+                  <AddIcon style={{fontSize: 30, marginLeft: 25}} onClick={this.state.textInputNum === 1 ? ()=>this.setState({textInputNum: 2}) : null} />
                 </div>
                 {this.state.textInputNum > 1 ?
                   <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
                     <TextField helperText="Max of 10 characters per line" error={!!(this.state.textLine2.length > 10)} style={{marginTop: 15, width: 300}} value={this.state.textLine2} id="outlined-basic" label="Line 2" variant="outlined" maxLength="2" onChange={(e)=>this.setState({textLine2: e.target.value})}/>
-                    <AddIcon style={{fontSize: 30, marginTop: 30, marginLeft: 25}} onClick={this.state.textInputNum === 2 ? ()=>this.setState({textInputNum: 3}) : null} />
+                    <AddIcon style={{fontSize: 30, marginLeft: 25}} onClick={this.state.textInputNum === 2 ? ()=>this.setState({textInputNum: 3}) : null} />
                   </div> : null}
                 {this.state.textInputNum > 2 ?
                   <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
                     <TextField helperText="Max of 10 characters per line" error={!!(this.state.textLine3.length > 10)} style={{marginTop: 15, width: 300}} value={this.state.textLine3} id="outlined-basic" label="Line 3" variant="outlined" maxLength="2" onChange={(e)=>this.setState({textLine3: e.target.value})}/>
-                    <AddIcon style={{fontSize: 30, marginTop: 30, marginLeft: 25}} onClick={this.state.textInputNum === 3 ? ()=>this.setState({textInputNum: 4}) : null} />
+                    <AddIcon style={{fontSize: 30, marginLeft: 25}} onClick={this.state.textInputNum === 3 ? ()=>this.setState({textInputNum: 4}) : null} />
                   </div> : null}
                 {this.state.textInputNum === 4 ?
                   <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
