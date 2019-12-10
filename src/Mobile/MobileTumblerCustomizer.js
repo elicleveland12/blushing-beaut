@@ -12,69 +12,82 @@ import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 export default class TumblerCustomizer extends Component {
 
   state = {
-    topColorVis: "white",
-    bottomColorVis: "white",
+    topColorVisCoffee: "white",
+    bottomColorVisCoffee: "white",
+    topColorVisWine: "white",
+    bottomColorVisWine: "white",
     side: "neither"
   }
 
   showColor = (side, color) => {
     switch (color) {
       case "blk":
-        side === "top" ? this.setState({topColorVis: "black"}) : this.setState({bottomColorVis: "black"})
+        side === "top" ? this.props.type === "coffee" ? this.setState({topColorVisCoffee: "black"}) : this.setState({topColorVisWine: "black"}) : this.props.type === "coffee" ? this.setState({bottomColorVisCoffee: "black"}) : this.setState({bottomColorVisWine: "black"})
         break;
       case "blu":
-        side === "top" ? this.setState({topColorVis: "blue"}) : this.setState({bottomColorVis: "blue"})
+        side === "top" ? this.props.type === "coffee" ? this.setState({topColorVisCoffee: "blue"}) : this.setState({topColorVisWine: "blue"}) : this.props.type === "coffee" ? this.setState({bottomColorVisCoffee: "blue"}) : this.setState({bottomColorVisWine: "blue"})
         break;
       case "brn":
-        side === "top" ? this.setState({topColorVis: "brown"}) : this.setState({bottomColorVis: "brown"})
+        side === "top" ? this.props.type === "coffee" ? this.setState({topColorVisCoffee: "brown"}) : this.setState({topColorVisWine: "brown"}) : this.props.type === "coffee" ? this.setState({bottomColorVisCoffee: "brown"}) : this.setState({bottomColorVisWine: "brown"})
         break;
       case "brz":
-        side === "top" ? this.setState({topColorVis: "#cd7f32"}) : this.setState({bottomColorVis: "#cd7f32"})
+        side === "top" ? this.props.type === "coffee" ? this.setState({topColorVisCoffee: "#cd7f32"}) : this.setState({topColorVisWine: "#cd7f32"}) : this.props.type === "coffee" ? this.setState({bottomColorVisCoffee: "#cd7f32"}) : this.setState({bottomColorVisWine: "#cd7f32"})
         break;
       case "cop":
-        side === "top" ? this.setState({topColorVis: "#b87333"}) : this.setState({bottomColorVis: "#b87333"})
+        side === "top" ? this.props.type === "coffee" ? this.setState({topColorVisCoffee: "#b87333"}) : this.setState({topColorVisWine: "#b87333"}) : this.props.type === "coffee" ? this.setState({bottomColorVisCoffee: "#b87333"}) : this.setState({bottomColorVisWine: "#b87333"})
         break;
       case "gld":
-        side === "top" ? this.setState({topColorVis: "#ffd700"}) : this.setState({bottomColorVis: "#ffd700"})
+        side === "top" ? this.props.type === "coffee" ? this.setState({topColorVisCoffee: "#ffd700"}) : this.setState({topColorVisWine: "#ffd700"}) : this.props.type === "coffee" ? this.setState({bottomColorVisCoffee: "#ffd700"}) : this.setState({bottomColorVisWine: "#ffd700"})
         break;
       case "gry":
-        side === "top" ? this.setState({topColorVis: "grey"}) : this.setState({bottomColorVis: "grey"})
+        side === "top" ? this.props.type === "coffee" ? this.setState({topColorVisCoffee: "grey"}) : this.setState({topColorVisWine: "grey"}) : this.props.type === "coffee" ? this.setState({bottomColorVisCoffee: "grey"}) : this.setState({bottomColorVisWine: "grey"})
         break;
       case "grn":
-        side === "top" ? this.setState({topColorVis: "green"}) : this.setState({bottomColorVis: "green"})
+        side === "top" ? this.props.type === "coffee" ? this.setState({topColorVisCoffee: "green"}) : this.setState({topColorVisWine: "green"}) : this.props.type === "coffee" ? this.setState({bottomColorVisCoffee: "green"}) : this.setState({bottomColorVisWine: "green"})
         break;
       case "orn":
-        side === "top" ? this.setState({topColorVis: "orange"}) : this.setState({bottomColorVis: "orange"})
+        side === "top" ? this.props.type === "coffee" ? this.setState({topColorVisCoffee: "orange"}) : this.setState({topColorVisWine: "orange"}) : this.props.type === "coffee" ? this.setState({bottomColorVisCoffee: "orange"}) : this.setState({bottomColorVisWine: "orange"})
         break;
       case "pnk":
-        side === "top" ? this.setState({topColorVis: "pink"}) : this.setState({bottomColorVis: "pink"})
+        side === "top" ? this.props.type === "coffee" ? this.setState({topColorVisCoffee: "pink"}) : this.setState({topColorVisWine: "pink"}) : this.props.type === "coffee" ? this.setState({bottomColorVisCoffee: "pink"}) : this.setState({bottomColorVisWine: "pink"})
         break;
       case "pur":
-        side === "top" ? this.setState({topColorVis: "purple"}) : this.setState({bottomColorVis: "purple"})
+        side === "top" ? this.props.type === "coffee" ? this.setState({topColorVisCoffee: "purple"}) : this.setState({topColorVisWine: "purple"}) : this.props.type === "coffee" ? this.setState({bottomColorVisCoffee: "purple"}) : this.setState({bottomColorVisWine: "purple"})
         break;
       case "red":
-        side === "top" ? this.setState({topColorVis: "red"}) : this.setState({bottomColorVis: "red"})
+        side === "top" ? this.props.type === "coffee" ? this.setState({topColorVisCoffee: "red"}) : this.setState({topColorVisWine: "red"}) : this.props.type === "coffee" ? this.setState({bottomColorVisCoffee: "red"}) : this.setState({bottomColorVisWine: "red"})
         break;
       case "rog":
-        side === "top" ? this.setState({topColorVis: "#b76e79"}) : this.setState({bottomColorVis: "#b76e79"})
+        side === "top" ? this.props.type === "coffee" ? this.setState({topColorVisCoffee: "#b76e79"}) : this.setState({topColorVisWine: "#b76e79"}) : this.props.type === "coffee" ? this.setState({bottomColorVisCoffee: "#b76e79"}) : this.setState({bottomColorVisWine: "#b76e79"})
         break;
       case "slv":
-        side === "top" ? this.setState({topColorVis: "silver"}) : this.setState({bottomColorVis: "silver"})
+        side === "top" ? this.props.type === "coffee" ? this.setState({topColorVisCoffee: "silver"}) : this.setState({topColorVisWine: "silver"}) : this.props.type === "coffee" ? this.setState({bottomColorVisCoffee: "silver"}) : this.setState({bottomColorVisWine: "silver"})
         break;
       case "wht":
-        side === "top" ? this.setState({topColorVis: "white"}) : this.setState({bottomColorVis: "white"})
+        side === "top" ? this.props.type === "coffee" ? this.setState({topColorVisCoffee: "white"}) : this.setState({topColorVisWine: "white"}) : this.props.type === "coffee" ? this.setState({bottomColorVisCoffee: "white"}) : this.setState({bottomColorVisWine: "white"})
         break;
       case "ylw":
-        side === "top" ? this.setState({topColorVis: "yellow"}) : this.setState({bottomColorVis: "yellow"})
+        side === "top" ? this.props.type === "coffee" ? this.setState({topColorVisCoffee: "yellow"}) : this.setState({topColorVisWine: "yellow"}) : this.props.type === "coffee" ? this.setState({bottomColorVisCoffee: "yellow"}) : this.setState({bottomColorVisWine: "yellow"})
         break;
       default:
-        this.setState({topColorVis: 'white', bottomColorVis: 'white'})
+        this.props.type === "coffee" ? this.setState({topColorVisCoffee: 'white', bottomColorVisCoffee: 'white'}) : this.setState({topColorVisWine: 'white', bottomColorVisWine: 'white'})
     }
   }
 
-  componentDidMount(){
-    this.showColor("top", this.props.topColor)
-    this.showColor("bottom", this.props.bottomColor)
+  componentDidUpdate = (prevProps) => {
+    if (prevProps.topColorCoffee !== this.props.topColorCoffee ||
+        prevProps.topColorWine!== this.props.topColorWine||
+        prevProps.bottomColorCoffee !== this.props.bottomColorCoffee ||
+        prevProps.bottomColorWine !== this.props.bottomColorWine
+      ) {
+        if (this.props.type === "coffee") {
+          this.showColor("top", this.props.topColorCoffee)
+          this.showColor("bottom", this.props.bottomColorCoffee)
+        } else {
+          this.showColor("top", this.props.topColorWine)
+          this.showColor("bottom", this.props.bottomColorWine)
+        }
+      }
   }
 
   render(){
@@ -84,11 +97,11 @@ export default class TumblerCustomizer extends Component {
           <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around', marginTop: -10, borderBottom: '1px solid blue'}}>
             <div style={{display: 'flex', flexDirection: 'column', width: '50%', backgroundColor: this.state.side === "top" ? "rgba(178, 190, 195,0.7)" : null}} onClick={()=>this.setState({side: this.state.side !== "top" ? "top" : "neither"})}>
               <h6>Top Color</h6>
-              <div style={{marginLeft: '25%', marginTop: -10, width: 30, height: 30, borderRadius: 40, border: '2px solid #b2bec3', backgroundColor: this.state.topColorVis, marginBottom: 5}}/>
+              <div style={{marginLeft: '25%', marginTop: -10, width: 30, height: 30, borderRadius: 40, border: '2px solid #b2bec3', backgroundColor: this.props.type === "coffee" ? this.state.topColorVisCoffee : this.state.topColorVisWine, marginBottom: 5}}/>
             </div>
             <div style={{display: 'flex', flexDirection: 'column', width: '50%', backgroundColor: this.state.side === "bottom" ? "rgba(178, 190, 195,0.7)" : null}} onClick={()=>this.setState({side: this.state.side !== "bottom" ? "bottom" : "neither"})}>
               <h6>Bottom Color</h6>
-              <div style={{marginLeft: '25%', marginTop: -10, width: 30, height: 30, borderRadius: 40, border: '2px solid #b2bec3', backgroundColor: this.state.bottomColorVis, marginBottom: 5}}/>
+              <div style={{marginLeft: '25%', marginTop: -10, width: 30, height: 30, borderRadius: 40, border: '2px solid #b2bec3', backgroundColor: this.props.type === "coffee" ? this.state.bottomColorVisCoffee : this.state.bottomColorVisWine, marginBottom: 5}}/>
             </div>
           </div>
           <div style={{display: 'flex', flexDirection: 'row', width: '100%', height: '100%'}}>
