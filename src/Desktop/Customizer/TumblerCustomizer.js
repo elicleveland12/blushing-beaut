@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import '../App.css';
 import TextField from '@material-ui/core/TextField';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -7,7 +6,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import AddIcon from '@material-ui/icons/Add';
 
-import ColorSelector from '../Components/ColorSelector';
+import ColorSelector from '../../Components/ColorSelector';
 
 export default class TumblerCustomizer extends Component {
 
@@ -48,9 +47,9 @@ export default class TumblerCustomizer extends Component {
               {this.state.textLine4.length > 0 ? <h1 style={{marginTop: this.props.coffee ? 40 : 20, color: this.state.textColor === "" ? 'black' : this.state.textColor, textAlign: 'center'}}>{this.state.textLine4}</h1> : null}
             </div>
             {this.props.coffee ?
-              <img src={require(`../images/coffee-color-selector/${this.state.topColor}-${this.state.bottomColor}-c.png`)} style={{width: 250, height: 450}} alt="coffee tumbler"/>
+              <img src={require(`../../images/coffee-color-selector/${this.state.topColor}-${this.state.bottomColor}-c.png`)} style={{width: 250, height: 450}} alt="coffee tumbler"/>
             :
-              <img src={require(`../images/wine-color-selector/${this.state.topColor}-${this.state.bottomColor}-w.png`)} style={{width: 250, height: 300, marginTop: 75}} alt="wine tumbler"/>
+              <img src={require(`../../images/wine-color-selector/${this.state.topColor}-${this.state.bottomColor}-w.png`)} style={{width: 250, height: 300, marginTop: 75}} alt="wine tumbler"/>
             }
           </div>
           <div style={{display: 'flex', flexDirection: 'column', height: 450, width: 500, alignContent: 'space-between'}}>

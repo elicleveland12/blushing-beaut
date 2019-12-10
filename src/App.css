@@ -68,38 +68,12 @@ body {
   cursor: pointer;
 }
 
-.slide-container {
-  height: 300px;
-  margin-top: 10px;
-  width: 500px;
-  justify-content: center;
-}
-
 h3 {
   text-align: center; }
 
 .each-fade {
   display: flex;
   justify-content: center;
-}
-
-.each-fade .image-container {
-  width: 100%;
-  margin-left: 30%;
-  overflow: hidden;
-}
-
-.each-fade .image-container img {
-
-}
-
-.each-fade h2 {
-  width: 25%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  background: #adceed;
 }
 
 .cup-type {
@@ -109,4 +83,18 @@ h3 {
   margin-top: 70px;
   width: 1000px;
   text-align: center;
+}
+
+.mobile-cup-check {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 96%;
+  margin-left: 2%;
+  height: 210px;
+  border: 2px solid #6c5ce7;
+  border-radius: 10px;
+  background-color: white;
+  margin-top: 20px;
+  z-index: 900;
 }

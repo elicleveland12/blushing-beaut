@@ -3,12 +3,12 @@ import './App.css';
 import scrollToComponent from 'react-scroll-to-component';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 
-import TopNavBar from './HomeScreen/TopNavBar';
-import SlideShow from './HomeScreen/SlideShow';
-import IntroBlurb from './HomeScreen/IntroBlurb';
-import CupType from './HomeScreen/CupType';
+import TopNavBar from './Desktop/HomeScreen/TopNavBar';
+import SlideShow from './Components/SlideShow';
+import IntroBlurb from './Desktop/HomeScreen/IntroBlurb';
+import CupType from './Desktop/HomeScreen/CupType';
 
-import TumblerCustomizer from './Customizer/TumblerCustomizer';
+import TumblerCustomizer from './Desktop/Customizer/TumblerCustomizer';
 
 
 export default class App extends Component {
@@ -34,7 +34,7 @@ export default class App extends Component {
         <TopNavBar />
         <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
           <div style={{display: 'flex', justifyContent: 'space-around', alignItems: 'center'}}>
-            <SlideShow />
+            <SlideShow mobile={this.props.mobile}/>
             <IntroBlurb/>
           </div>
           <div style={{display: 'flex', justifyContent: 'center'}}>
