@@ -9,6 +9,28 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+const PORT = process.env.SERVER_PORT || 3000;
+const INDEX = './public/index.html';
+
+const server = express()
+  .use((req, res) => res.sendFile(INDEX, { root: __dirname }))
+  .listen(PORT, () => console.log(`Listening on ${PORT}`));
+
+const { Server } = require('ws');
+
+const wss = new Server({ server });
+
+wss.on('connection', (ws) => {
+  console.log('Client connected');
+  ws.on('close', () => console.log('Client disconnected'));
+});
+
+setInterval(() => {
+  wss.clients.forEach((client) => {
+    client.send(new Date().toTimeString());
+  });
+}, 1000);
+
 app.get("/", (req, res) => {
   res.send("Add your Stripe Secret Key to the .require('stripe') statement!");
 });
