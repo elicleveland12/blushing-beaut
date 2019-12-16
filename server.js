@@ -20,9 +20,9 @@ const { Server } = require('ws');
 
 const wss = new Server({ server });
 
-wss.on('connection', (ws) => {
+wss.on('connection', (wss) => {
   console.log('Client connected');
-  ws.on('close', () => console.log('Client disconnected'));
+  wss.on('close', () => console.log('Client disconnected'));
 });
 
 setInterval(() => {
