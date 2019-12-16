@@ -1,8 +1,10 @@
 const cors = require("cors");
 const express = require("express");
 var fs = require('fs');
+const https = require('https');
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const uuid = require("uuid/v4");
+const { Server } = require('ws');
 
 const app = express();
 
@@ -10,26 +12,22 @@ app.use(express.json());
 app.use(cors());
 
 const PORT = process.env.SERVER_PORT || 3000;
-const INDEX = './public/index.html';
 
-const server = express()
-  .use((req, res) => res.sendFile(INDEX, { root: __dirname }))
-  .listen(PORT, () => console.log(`Listening on ${PORT}`));
+const server = https.createServer({
+  cert: fs.readFileSync('/path/to/cert.pem'),
+  key: fs.readFileSync('/path/to/key.pem')
+});
+const wss = new WebSocket.Server({ server });
 
-const { Server } = require('ws');
+wss.on('connection', function connection(ws) {
+  ws.on('message', function incoming(message) {
+    console.log('received: %s', message);
+  });
 
-const wss = new Server({ server });
-
-wss.on('connection', (wss) => {
-  console.log('Client connected');
-  wss.on('close', () => console.log('Client disconnected'));
+  ws.send('something');
 });
 
-setInterval(() => {
-  wss.clients.forEach((client) => {
-    client.send(new Date().toTimeString());
-  });
-}, 1000);
+server.listen(PORT);
 
 app.get("/", (req, res) => {
   res.send("Add your Stripe Secret Key to the .require('stripe') statement!");

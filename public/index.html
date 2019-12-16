@@ -27,11 +27,11 @@
     -->
     <script src="https://js.stripe.com/v3/"></script>
     <script>
-    var HOST = location.origin.replace(/^https:/, 'ws:')
-    var wss = new WebSocket(HOST);
+    var HOST = location.origin.replace(/^http/, 'ws')
+    var ws = new WebSocket(HOST);
     var el;
 
-    wss.onmessage = function (event) {
+    ws.onmessage = function (event) {
       el = document.getElementById('server-time');
       el.innerHTML = 'Server time: ' + event.data;
     };
