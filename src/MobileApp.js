@@ -8,19 +8,24 @@ import MobileCupType from './Mobile/MobileCupType';
 export default class MobileApp extends Component {
 
   state = {
-    customize: "none"
+    customize: "none",
+    toggle: false
   }
 
   customizeCup = (type) => {
     this.setState({customize: type})
   }
 
+  toggleCounter = () => {
+    this.setState({toggle: !this.state.toggle})
+  }
+
   render(){
     return(
       <div className="app-container">
-        <MobileNav />
+        <MobileNav toggle={this.state.toggle}/>
         <SlideShow mobile={this.props.mobile} />
-        <MobileCupType customizeCup={this.customizeCup} type={this.state.customize} />
+        <MobileCupType customizeCup={this.customizeCup} type={this.state.customize} toggleCounter={this.toggleCounter}/>
       </div>
     )
   }

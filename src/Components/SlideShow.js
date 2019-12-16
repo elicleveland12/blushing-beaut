@@ -27,6 +27,11 @@ function SlideShow(props) {
             <img src={require('../images/cupFour.jpg')}  height="400px" alt="cup three"/>
           </div>
         </div>
+        <div className="each-fade">
+          <div style={{display: 'flex', justifyContent: 'center', width: '100%', overflow: 'hidden'}}>
+            <img src={require('../images/cupFive.jpg')}  height="400px" alt="cup two"/>
+          </div>
+        </div>
       </Fade>
     </div>
   )
