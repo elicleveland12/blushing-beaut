@@ -37,6 +37,7 @@ export default class MobileCart extends Component {
       }
     if (Object.keys(product).length > 0) {
       const response = fetch("https://blushing-beaut.herokuapp.com/checkout", {
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
           "Accept": "application/json"
