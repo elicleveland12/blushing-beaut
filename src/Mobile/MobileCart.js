@@ -36,15 +36,7 @@ export default class MobileCart extends Component {
         amount: this.state.cartTotal + this.state.processingCost
       }
     if (Object.keys(product).length > 0) {
-      const response = fetch("https://blushing-beaut.herokuapp.com/checkout", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify({token, product})
-      })
-      // const response = await axios.post("https://blushing-beaut.herokuapp.com/checkout", {token, product})
+      const response = await axios.post("https://blushing-beaut.herokuapp.com/checkout", {token, product})
       const { status } = response.data
       if (status === 'success') {
         localStorage.removeItem('cart')

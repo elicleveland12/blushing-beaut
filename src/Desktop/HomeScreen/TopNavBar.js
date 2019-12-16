@@ -45,7 +45,7 @@ export default class TopNavBar extends Component {
         <div className="hover-class" style={{display: 'flex', flexDirection: 'row', paddingRight: 10, alignItems: 'center'}}>
           <InstagramIcon className="hover-class" style={{fontSize: 40, color: '#6c5ce7'}} onClick={() => window.open('https://www.instagram.com/blushin_beaut/')}/>
           <FacebookIcon className="hover-class" style={{fontSize: 40, color: '#6c5ce7', marginLeft: 10}} onClick={()=>window.open('https://www.facebook.com/jenna.whitmeyer')}/>
-          <a href="mailto:jenna@whitmeyer.com"><MailOutlineIcon className="hover-class" style={{fontSize: 40, color: '#6c5ce7', marginLeft: 10, marginTop: 3}}/></a>
+          <a href="mailto:jennadunne@me.com"><MailOutlineIcon className="hover-class" style={{fontSize: 40, color: '#6c5ce7', marginLeft: 10, marginTop: 3}}/></a>
           <ShoppingCartIcon className="hover-class" style={{fontSize: 40, color: '#6c5ce7', marginLeft: 10}} onMouseEnter={()=>this.props.toggleShowCart()}/>
           {this.state.cartCounter > 0 ?
             <div style={{position: 'absolute', top: 12, right: 8, height: 15, width: 15, borderRadius: 40, backgroundColor: 'white', border: '2px solid #6c5ce7', textAlign: 'center'}}>

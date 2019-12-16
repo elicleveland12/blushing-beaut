@@ -85,7 +85,7 @@ export default class TopNavBar extends Component {
           <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center'}}>
             <InstagramIcon style={{color: '#6c5ce7', fontSize: 40}} onClick={() => window.open(`instagram://user?username=${encodedURL}`)}/>
             <FacebookIcon style={{color: '#6c5ce7', fontSize: 40}} onClick={()=>window.open('https://www.facebook.com/jenna.whitmeyer')}/>
-            <a href="mailto:jenna@whitmeyer.com"><MailOutlineIcon style={{color: '#6c5ce7', fontSize: 40}}/></a>
+            <a href="mailto:jennadunne@me.com"><MailOutlineIcon style={{color: '#6c5ce7', fontSize: 40}}/></a>
             <ShoppingCartIcon style={{color: '#6c5ce7', fontSize: 40}} onClick={()=>this.setState({showCart: !this.state.showCart})}/>
             {this.state.cartCounter > 0 ?
               <div style={{position: 'absolute', top: 76, right: 22, height: 15, width: 15, borderRadius: 40, backgroundColor: 'white', border: '2px solid #6c5ce7', textAlign: 'center'}}>
