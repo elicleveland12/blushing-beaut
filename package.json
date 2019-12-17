@@ -2,6 +2,9 @@
   "name": "blushing_beaut",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "12.13.1"
+  },
   "dependencies": {
     "@material-ui/core": "^4.7.1",
     "@material-ui/icons": "^4.5.1",
